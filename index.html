@@ -237,6 +237,76 @@ cd my-blog
 npm install
 </code></pre>
 <h3 id="2-3-结构说明："><a href="#2-3-结构说明：" class="headerlink" title="2.3 结构说明："></a>2.3 结构说明：</h3><p>scaffolds：用于创建文章的模板文件。<br>source：存放博客的主要内容（如文章和图片）。<br>themes：主题文件夹，存放博客的主题文件。<br>_config.yml：Hexo 的全局配置文件。</p>
+<h2 id="3-本地预览博客"><a href="#3-本地预览博客" class="headerlink" title="3. 本地预览博客"></a>3. 本地预览博客</h2><h3 id="3-1-启动-Hexo-本地服务器"><a href="#3-1-启动-Hexo-本地服务器" class="headerlink" title="3.1 启动 Hexo 本地服务器"></a>3.1 启动 Hexo 本地服务器</h3><p>在终端中运行以下命令，启动本地服务器：</p>
+<pre><code class="bash">hexo server
+</code></pre>
+<h3 id="3-2-访问本地博客"><a href="#3-2-访问本地博客" class="headerlink" title="3.2 访问本地博客"></a>3.2 访问本地博客</h3><p>打开浏览器，访问以下地址：</p>
+<pre><code class="bash">http://localhost:4000
+</code></pre>
+<p>如果看到 Hexo 的默认页面，说明本地博客运行成功。</p>
+<h2 id="4-创建文章"><a href="#4-创建文章" class="headerlink" title="4. 创建文章"></a>4. 创建文章</h2><h3 id="4-1-使用以下命令创建新文章："><a href="#4-1-使用以下命令创建新文章：" class="headerlink" title="4.1 使用以下命令创建新文章："></a>4.1 使用以下命令创建新文章：</h3><pre><code class="bash">hexo new post &quot;你的文章标题&quot;
+</code></pre>
+<h3 id="4-2-编辑文章内容"><a href="#4-2-编辑文章内容" class="headerlink" title="4.2 编辑文章内容"></a>4.2 编辑文章内容</h3><p>文章文件会被保存在 source&#x2F;_posts 文件夹中，使用编辑器打开 Markdown 文件，并按照以下格式编辑：</p>
+<pre><code class="yaml">---
+title: 你的文章标题
+date: 2024-12-22
+tags:
+  - 示例标签
+  - 教程
+---
+这里是你的文章内容。
+</code></pre>
+<h2 id="5-更换主题"><a href="#5-更换主题" class="headerlink" title="5. 更换主题"></a>5. 更换主题</h2><h3 id="5-1-查找主题"><a href="#5-1-查找主题" class="headerlink" title="5.1 查找主题"></a>5.1 查找主题</h3><p>在 Hexo 主题列表 中浏览并选择一个你喜欢的主题。</p>
+<h3 id="5-2-下载主题"><a href="#5-2-下载主题" class="headerlink" title="5.2 下载主题"></a>5.2 下载主题</h3><p>进入博客目录，在 themes 文件夹中下载并解压主题，例如：</p>
+<pre><code class="bash">git clone https://github.com/username/theme-name themes/theme-name
+</code></pre>
+<h3 id="5-3-配置主题"><a href="#5-3-配置主题" class="headerlink" title="5.3 配置主题"></a>5.3 配置主题</h3><p>打开 Hexo 的全局配置文件 _config.yml，找到 theme，并修改为你下载的主题名称，例如：</p>
+<pre><code class="yaml">theme: theme-name
+</code></pre>
+<h2 id="6-部署到-GitHub-Pages"><a href="#6-部署到-GitHub-Pages" class="headerlink" title="6. 部署到 GitHub Pages"></a>6. 部署到 GitHub Pages</h2><h3 id="6-1-创建-GitHub-仓库"><a href="#6-1-创建-GitHub-仓库" class="headerlink" title="6.1 创建 GitHub 仓库"></a>6.1 创建 GitHub 仓库</h3><p>登录 GitHub，创建一个新的仓库，命名为 yourname.github.io。</p>
+<h3 id="6-2-安装部署工具"><a href="#6-2-安装部署工具" class="headerlink" title="6.2 安装部署工具"></a>6.2 安装部署工具</h3><p>在 Hexo 项目目录下，安装部署插件：</p>
+<pre><code class="bash">npm install hexo-deployer-git --save
+</code></pre>
+<h3 id="6-3-配置部署信息"><a href="#6-3-配置部署信息" class="headerlink" title="6.3 配置部署信息"></a>6.3 配置部署信息</h3><p>编辑 _config.yml 文件，添加以下内容：</p>
+<pre><code class="yaml">deploy:
+  type: git
+  repo: https://github.com/yourname/yourname.github.io.git
+  branch: main
+</code></pre>
+<h3 id="6-4-生成并部署"><a href="#6-4-生成并部署" class="headerlink" title="6.4 生成并部署"></a>6.4 生成并部署</h3><p>运行以下命令生成静态文件并部署到 GitHub：</p>
+<pre><code class="bash">hexo generate
+hexo deploy
+</code></pre>
+<h3 id="6-5-访问博客"><a href="#6-5-访问博客" class="headerlink" title="6.5 访问博客"></a>6.5 访问博客</h3><p>打开浏览器，访问 <a target="_blank" rel="noopener" href="https://yourname.github.io,查看你的博客./">https://yourname.github.io，查看你的博客。</a></p>
+<h2 id="7-常用命令总结"><a href="#7-常用命令总结" class="headerlink" title="7. 常用命令总结"></a>7. 常用命令总结</h2><p>以下是 Hexo 常用命令及其功能说明：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo new post</code></td>
+<td>创建新文章</td>
+</tr>
+<tr>
+<td><code>hexo generate</code></td>
+<td>生成静态文件</td>
+</tr>
+<tr>
+<td><code>hexo server</code></td>
+<td>启动本地服务器</td>
+</tr>
+<tr>
+<td><code>hexo deploy</code></td>
+<td>部署到远程服务器</td>
+</tr>
+<tr>
+<td><code>hexo clean</code></td>
+<td>清理缓存和生成的静态文件</td>
+</tr>
+</tbody></table>
 
             
         </div>
@@ -251,17 +321,17 @@ npm install
         
         <span class="tag">
             
-            <a href="/tags/Hexo/" style="color: #ff7d73">Hexo</a>
+            <a href="/tags/Hexo/" style="color: #ffa2c4">Hexo</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #00a596">教程</a>
+            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #03a9f4">教程</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="color: #00bcd4">博客搭建</a>
+            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="color: #ffa2c4">博客搭建</a>
         </span>
         
     </div>
