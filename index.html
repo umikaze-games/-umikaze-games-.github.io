@@ -11,7 +11,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <link rel="icon" href="/images/avatar.jpg" />
+    <!-- 引用 favicon -->
+    <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -49,6 +50,7 @@
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
     <div id="layout">
+        <!-- 加载动画 -->
         <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
@@ -58,6 +60,7 @@
                 </div>
             </div>
         </transition>
+        <!-- 菜单 -->
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
@@ -152,6 +155,7 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <!-- 主体内容 -->
             <div id="home-head">
     <div
         id="home-background"
@@ -319,6 +323,7 @@
 
         </div>
         
+        <!-- 预览弹窗 -->
         <transition name="fade">
             <div id="preview" ref="preview" v-show="previewShow">
                 <img id="preview-content" ref="previewContent" />
