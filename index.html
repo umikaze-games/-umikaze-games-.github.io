@@ -307,91 +307,19 @@
             <footer id="footer">
     <div id="footer-wrap">
         <div>
-            &copy; 2021 - 2024 流心兔年糕
-            <span id="footer-icon"></span>
+            &copy;
+            2021 - 2024 流心兔年糕
+            <span id="footer-icon">
+
+            </span>
             &commat;恋上海风
+        </div>
+        <div>
+            
         </div>
         
     </div>
-    <!-- 流星特效 -->
-    <canvas id="shooting-stars"></canvas>
 </footer>
-<script>
-    const canvas = document.getElementById('shooting-stars');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const stars = [];
-    const shootingStars = [];
-
-    function createStar() {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2,
-            alpha: Math.random(),
-            speed: Math.random() * 0.5,
-        });
-    }
-
-    function createShootingStar() {
-        shootingStars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            length: Math.random() * 80 + 50,
-            speedX: Math.random() * 5 + 3,
-            speedY: Math.random() * 5 + 3,
-            alpha: 1,
-        });
-    }
-
-    for (let i = 0; i < 100; i++) createStar();
-
-    function drawStars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-        stars.forEach((star) => {
-            ctx.globalAlpha = star.alpha;
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fill();
-            star.y += star.speed;
-            if (star.y > canvas.height) star.y = 0;
-        });
-
-        shootingStars.forEach((star, index) => {
-            ctx.globalAlpha = star.alpha;
-            ctx.beginPath();
-            ctx.moveTo(star.x, star.y);
-            ctx.lineTo(
-                star.x - star.speedX * star.length,
-                star.y - star.speedY * star.length
-            );
-            ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            star.x += star.speedX;
-            star.y += star.speedY;
-            star.alpha -= 0.02;
-
-            if (star.alpha <= 0) shootingStars.splice(index, 1);
-        });
-
-        requestAnimationFrame(drawStars);
-    }
-
-    setInterval(createShootingStar, 1000);
-    drawStars();
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-</script>
-
         </div>
         
         <!-- 预览弹窗 -->
